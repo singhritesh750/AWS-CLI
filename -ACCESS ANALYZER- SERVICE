@@ -1,55 +1,27 @@
-FOR -apply-archive-rule-:
+-apply-archive-rule-:
 Request Syntax:-
-PUT /archive-rule HTTP/1.1
-Content-type: application/json
-{"analyzerArn": "string",
- "clientToken": "string",
- "ruleName": "string"
-}
-
+    PUT /archive-rule HTTP/1.1
+    Content-type: application/json
+    {"analyzerArn": "string",
+     "clientToken": "string",
+     "ruleName": "string"}
 Response Syntax:- HTTP/1.1 200
 Response Elements:- If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
-
 Common Errors:- 
-    AccessDeniedException
-    You do not have sufficient access to perform this action.
-    HTTP Status Code: 403
+    AccessDeniedException; You do not have sufficient access to perform this action; HTTP Status Code: 403
+    InternalServerException; Internal server error; HTTP Status Code: 500
+    ResourceNotFoundException; The specified resource could not be found; HTTP Status Code: 404
+    ThrottlingException; Throttling limit exceeded error; HTTP Status Code: 429
+    ValidationException; Validation exception error; HTTP Status Code: 400
 
-    InternalServerException
-    Internal server error.
-    HTTP Status Code: 500
-
-    ResourceNotFoundException
-    The specified resource could not be found.
-    HTTP Status Code: 404
-
-    ThrottlingException
-    Throttling limit exceeded error.
-    HTTP Status Code: 429
-
-    ValidationException
-    Validation exception error.
-    HTTP Status Code: 400
-
-FOR -CancelPolicyGeneration-:
+-CancelPolicyGeneration-:
 Request Syntax:- PUT /policy/generation/jobId HTTP/1.1
 Response Syntax:- HTTP/1.1 200
 Response Elements:- If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
-
 Common Errors:- 
-    AccessDeniedException
-    You do not have sufficient access to perform this action.
-    HTTP Status Code: 403
+    AccessDeniedException; You do not have sufficient access to perform this action.; HTTP Status Code: 403
+    InternalServerException; Internal server error; HTTP Status Code: 500
+    ThrottlingException; Throttling limit exceeded error; HTTP Status Code: 429
+    ValidationException; Validation exception error; HTTP Status Code: 400
 
-    InternalServerException
-    Internal server error.
-    HTTP Status Code: 500
-
-    ThrottlingException
-    Throttling limit exceeded error.
-    HTTP Status Code: 429
-
-    ValidationException
-    Validation exception error.
-    HTTP Status Code: 400
-
+-CreateAccessPreview- allows you to preview Access Analyzer findings before deploying resource permissions.
