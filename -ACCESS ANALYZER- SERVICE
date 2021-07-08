@@ -25,3 +25,37 @@ Common Errors:-
     ValidationException; Validation exception error; HTTP Status Code: 400
 
 -CreateAccessPreview- allows you to preview Access Analyzer findings before deploying resource permissions.
+Request Syntax:-
+PUT /access-preview HTTP/1.1
+Content-type: application/json
+{
+   "analyzerArn": "string",
+   "clientToken": "string",
+   "configurations": { 
+      "string" : { 
+         "iamRole": {"trustPolicy": "string"},
+         "kmsKey": { 
+            "grants": [something something...],
+            "keyPolicies": {"string" : "string"}
+         },
+         "s3Bucket": {something somehting...},
+         "secretsManagerSecret": { 
+            "kmsKeyId": "string",
+            "secretPolicy": "string"
+         },
+         "sqsQueue": {"queuePolicy": "string"}
+      }
+   }
+}
+
+Response Syntax:-
+HTTP/1.1 200
+Content-type: application/json
+{"id": "string"}
+Response :-
+If the action is successful, the service sends back an HTTP 200 response.
+The following data is returned in JSON format by the service.
+id:
+(a)The unique ID for the access preview.
+(b)Type: String
+(c)Pattern: ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$
