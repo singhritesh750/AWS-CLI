@@ -81,3 +81,16 @@ Response Syntax -:
 {"ExpiryEvents": { 
  "DaysBeforeExpiry": number}
 }
+
+
+get-certificate -: Retrieves an Amazon-issued certificate and its certificate chain. The chain consists of the certificate of the issuing CA and the intermediate 
+certificates of any other subordinate CAs.
+Formate -: 
+aws acm get-certificate
+--certificate-arn <value>
+Example -: aws acm get-certificate --certificate-arn arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
+Response Syntax -:
+{"Certificate": "string",
+ "CertificateChain": "string"
+}
+Output -: Certificate -> (string), CertificateChain -> (string)
