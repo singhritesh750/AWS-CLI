@@ -43,3 +43,25 @@ aws acm describe-certificate
 [--generate-cli-skeleton <value>]
 Example -:
 aws acm describe-certificate --certificate-arn arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
+
+
+export-certificate -: Exports a private certificate issued by a private certificate authority (CA) for use anywhere. The exported file contains the certificate, the 
+certificate chain, and the encrypted private 2048-bit RSA key associated with the public key that is embedded in the certificate. For security, you must assign a passphrase 
+for the private key when exporting it.
+Request Syntax -:
+{"CertificateArn": "string",
+   "Passphrase": blob
+}
+Request Parameters -: CertificateArn, Passphrase (Passphrase to associate with the encrypted exported private key. If you want to later decrypt the private key, you must 
+have the passphrase.)
+Response Syntax -:
+{"Certificate": "string",
+ "CertificateChain": "string",
+ "PrivateKey": "string"
+}
+Formate-:
+aws acm export-certificate
+--certificate-arn <value>
+--passphrase <value>
+[--cli-input-json | --cli-input-yaml]
+[--generate-cli-skeleton <value>]
