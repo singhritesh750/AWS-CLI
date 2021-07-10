@@ -65,3 +65,19 @@ aws acm export-certificate
 --passphrase <value>
 [--cli-input-json | --cli-input-yaml]
 [--generate-cli-skeleton <value>]
+
+
+
+GetAccountConfiguration -: Returns the account configuration options associated with an AWS account.
+Response Syntax -:
+{"ExpiryEvents": { "DaysBeforeExpiry": number}
+}
+Formate -: 
+aws acm get-account-configuration
+[--cli-input-json | --cli-input-yaml]
+[--generate-cli-skeleton <value>]
+Output -: ExpiryEvents -> (structure), Expiration events configuration options associated with the AWS account., DaysBeforeExpiry -> (integer)
+Response Syntax -: 
+{"ExpiryEvents": { 
+ "DaysBeforeExpiry": number}
+}
