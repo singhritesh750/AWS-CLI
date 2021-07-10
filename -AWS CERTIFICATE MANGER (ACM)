@@ -1,31 +1,27 @@
 To remove one or more tags, use the RemoveTagsFromCertificate action.
 To view all of the tags that have been applied to the certificate, use the ListTagsForCertificate action.
 
-To add tags to existing ACM certificate
 
+To add tags to existing ACM certificate
 Formate:   
 aws acm add-tags-to-certificate
 --certificate-arn <value>
 --tags <value>
 [--cli-input-json | --cli-input-yaml]
-[
-  {
-    "Key": "string",
-    "Value": "string"
-  }
-  ...
-]
+[{"Key": "string",
+    "Value": "string"}
+  ...]
 [--generate-cli-skeleton <value>]
 Example:
 aws acm add-tags-to-certificate 
 --certificate-arn arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012 
 --tags Key=Admin,Value=Alice Key=Purpose,Value=Website
 
+
 To delete a Certificate
 
 ***Note:
 You cannot delete an ACM certificate that is being used by another AWS service. To delete a certificate that is in use, the certificate association must first be removed.
-
 Request Syntax -: { "CertificateArn": "string" }
 Response Elements -: If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
 Formate -:
@@ -35,3 +31,15 @@ aws acm delete-certificate
 [--generate-cli-skeleton <value>]
 Example -:
 aws acm delete-certificate --certificate-arn arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
+
+
+describe-certificate -: Returns detailed metadata about the specified ACM certificate.
+Request Syntax -: {"CertificateArn": "string"}
+Response Elements -: If the action is successful, the service sends back an HTTP 200 response.The huge data is returned in JSON format by the service.
+Formate -:
+aws acm describe-certificate
+--certificate-arn <value>
+[--cli-input-json | --cli-input-yaml]
+[--generate-cli-skeleton <value>]
+Example -:
+aws acm describe-certificate --certificate-arn arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
